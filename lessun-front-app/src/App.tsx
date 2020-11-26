@@ -1,8 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Route, Router, Switch } from 'react-router-dom';
+import Home from './components/home/Home';
+import Header from "./components/shared/Header";
 
-function App() {
+/* function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +22,15 @@ function App() {
       </header>
     </div>
   );
+}*/
+
+const App = () => {
+  return (
+    <>
+      <Header />
+      <Home />
+    </>
+  )
 }
 
 export default App;
