@@ -51,6 +51,7 @@ const Header = () => {
                                         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span className="caret"></span></a>
                                         <ul className="dropdown-menu">
                                             <li><NavLink to="/AboutUs" activeClassName="active" role="button">About Us</NavLink></li>
+                                            <li><NavLink to="/ContactUs" activeClassName="active" role="button">Contact Us</NavLink></li>
                                         </ul>
                                     </li>
                                     <li>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const CoursesList = () => {
     return (
@@ -42,7 +43,7 @@ const CoursesList = () => {
                                                         <h5><span>Photography for Beginners</span></h5>
                                                         <p className="lead">16 week course.</p>
                                                         <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <a href="single-course.html" className="btn btn-primary btn-green">View Details</a>
+                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
                                                     </div>
                                                     <div className="col-sm-2 col-xs-12 text-right">
                                                         <h1><span>$199</span></h1>
@@ -57,7 +58,7 @@ const CoursesList = () => {
                                                         <h5><span>Photography for Beginners</span></h5>
                                                         <p className="lead">16 week course.</p>
                                                         <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <a href="single-course.html" className="btn btn-primary btn-green">View Details</a>
+                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
                                                     </div>
                                                     <div className="col-sm-2 col-xs-12 text-right">
                                                         <h1><span>$199</span></h1>
@@ -72,7 +73,7 @@ const CoursesList = () => {
                                                         <h5><span>Photography for Beginners</span></h5>
                                                         <p className="lead">16 week course.</p>
                                                         <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <a href="single-course.html" className="btn btn-primary btn-green">View Details</a>
+                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
                                                     </div>
                                                     <div className="col-sm-2 col-xs-12 text-right">
                                                         <h1><span>$199</span></h1>
@@ -87,7 +88,7 @@ const CoursesList = () => {
                                                         <h5><span>Photography for Beginners</span></h5>
                                                         <p className="lead">16 week course.</p>
                                                         <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <a href="single-course.html" className="btn btn-primary btn-green">View Details</a>
+                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
                                                     </div>
                                                     <div className="col-sm-2 col-xs-12 text-right">
                                                         <h1><span>$199</span></h1>
@@ -102,7 +103,7 @@ const CoursesList = () => {
                                                         <h5><span>Photography for Beginners</span></h5>
                                                         <p className="lead">16 week course.</p>
                                                         <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <a href="single-course.html" className="btn btn-primary btn-green">View Details</a>
+                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
                                                     </div>
                                                     <div className="col-sm-2 col-xs-12 text-right">
                                                         <h1><span>$199</span></h1>

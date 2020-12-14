@@ -12,6 +12,7 @@ import AboutUs from './components/pages/AboutUs';
 import NewsList from './components/news/NewsList';
 import CoursesList from './components/courses/CoursesList';
 import SingleCourse from './components/courses/SingleCourse';
+import ContactUs from './components/pages/ContactUs';
 
 
 /* function App() {
@@ -49,6 +50,7 @@ const App = () => {
               <Route exact path="/Login"><Login /></Route>
               <Route exact path="/Register"><Register /></Route>
               <Route exact path="/AboutUs"><AboutUs /></Route>
+              <Route exact path="/ContactUs"><ContactUs /></Route>
               <Route exact path="/NewsList"><NewsList /></Route>
               <Route exact path="/CoursesList"><CoursesList /></Route>
               <Route exact path="/SingleCourse"><SingleCourse /></Route>

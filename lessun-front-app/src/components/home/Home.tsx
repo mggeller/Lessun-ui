@@ -12,7 +12,7 @@ const Home = () => {
                                         Best Education</h1>
                             <p>
                                 <a className="btn btn-white btn-lg page-scroll" href="#about-us" role="button">Why?</a>
-                                <a className="btn btn-lg btn-primary btn-green page-scroll" href="#our-team" role="button">Browse Courses</a>
+                                <a className="btn btn-lg btn-primary btn-green page-scroll" href="#our-courses" role="button">Browse Courses</a>
                             </p>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ const Home = () => {
                             <div className="col-md-3">
                                 <p className="lead">Completely enhance an expanded array of internal or "organic" sources for prospective models.</p>
                                 <p className="mb40">Assertively envisioneer business opportunities before interoperable e-markets. Quickly empower optimal core competencies and real-time imperatives. Enthusiastically predominate 24/365 benefits with collaborative web-readiness, assertively envisioneer business opportunities e-markets.</p>
-                                <a className="btn btn-lg btn-primary btn-green page-scroll" href="#our-team" role="button">Browse Courses</a>
+                                <a className="btn btn-lg btn-primary btn-green page-scroll" href="#our-courses" role="button">Browse Courses</a>
                             </div>
                             <div className="col-md-8 col-md-offset-1">
                                 <div className="row">
@@ -91,7 +91,7 @@ const Home = () => {
                                         <h3>Why choose Scholar?</h3>
                                         <h5 className="section-sub-title mb40">Let us explain.</h5>
                                         <p className="mb40">Holisticly orchestrate superior total linkage rather than end-to-end internal or "organic" sources. Seamlessly procrastinate client-based ROI without long-term high-impact.</p>
-                                        <a href="#" className="btn btn-primary btn-green btn-lg">Browse Courses</a>
+                                        <a href="#our-courses" className="btn btn-primary btn-green btn-lg">Browse Courses</a>
                                     </div>
                                 </div>
                             </div>
