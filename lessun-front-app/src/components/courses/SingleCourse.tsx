@@ -1,6 +1,39 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { ISingleCourse } from '../../domain/ISingleCourse';
+import { CourseApi } from '../../services/CourseApi';
+
+const StarRating = (props: {rating: number}) => {
+    let table = [];
+
+    for (let i = 0; i < 5; i++) {
+        if (i <= props.rating - 1) {
+            table.push(<i className="fa fa-star"></i>)
+        } else {
+            table.push(<i className="fa fa-star-o"></i>)
+        }
+    }
+
+    return (<>{table}</>);
+}
 
 const SingleCourse = () => {
+
+    let id: string = "00004";
+
+    const [course, setCourse] = useState({} as ISingleCourse | undefined);
+
+    useEffect(() => {
+        const callApi = () => {
+            const data = CourseApi.getCourse(id);
+            setCourse(data);
+        };
+        callApi();
+    }, [id]);
+
+    console.log(course)
+
     return (
         <>
             <div className="preloader">
@@ -13,7 +46,7 @@ const SingleCourse = () => {
                 <div className="dark-overlay single-page-hero">
                     <div className="container single-page-hero">
                         <div className="vertical-center-js text-center">
-                            <h1>Single Course</h1>
+                            <h1>{course?.title}</h1>
                         </div>
                     </div>
                 </div>
@@ -44,10 +77,10 @@ const SingleCourse = () => {
                                 <div className="course-fees widget mb40">
                                     <h4 className="widget-title mb40">Course Fees</h4>
                                     <div className="widget-content">
-                                        <span className="course-price">$299</span>
-                                        <span className="course-info">Course Length: <strong>16 Weeks</strong></span>
+                                        <span className="course-price">${course?.price}</span>
+                                        <span className="course-info">Course Length: <strong>{course?.length} Weeks</strong></span>
                                         <span className="course-info">Students Passes: <strong>106</strong></span>
-                                        <span className="course-info">Rating: <i className="fa fa-star"></i><i className="fa fa-star"></i><i className="fa fa-star"></i><i className="fa fa-star"></i><i className="fa fa-star"></i></span>
+                                        <span className="course-info">Rating: <StarRating rating={course!.rating} /></span>
                                     </div>
                                 </div>
                             </div>

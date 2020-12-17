@@ -1,4 +1,5 @@
-export interface ISinglePost {
+export interface ISingleCourse {
+    id: string;
     title: string;
     length: number;
     short_description: string;

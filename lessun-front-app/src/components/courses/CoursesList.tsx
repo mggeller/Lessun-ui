@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { NavLink } from 'react-router-dom';
+import { ISingleCourse } from "../../domain/ISingleCourse";
+import { CourseApi } from "../../services/CourseApi";
+import SingleCourseView from "./SingleCourseView";
 
 const CoursesList = () => {
+
+    const [courses, setCourses] = useState([] as ISingleCourse[]);
+
+    useEffect(() => {
+        const callApi = () => {
+            const data = CourseApi.getAll();
+            setCourses(data);
+        };
+        callApi();
+    }, [courses.length]);
+
     return (
         <>
             <div className="preloader">
@@ -36,81 +50,9 @@ const CoursesList = () => {
                                     </ul>
 
                                     <div className="masonry-portfolio-items">
-                                        <div className="col-sm-6 masonry-portfolio-item apps">
-                                            <div className="mb40">
-                                                <div className="row">
-                                                    <div className="col-sm-10 col-xs-12">
-                                                        <h5><span>Photography for Beginners</span></h5>
-                                                        <p className="lead">16 week course.</p>
-                                                        <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
-                                                    </div>
-                                                    <div className="col-sm-2 col-xs-12 text-right">
-                                                        <h1><span>$199</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-6 masonry-portfolio-item design">
-                                            <div className="mb40">
-                                                <div className="row">
-                                                    <div className="col-sm-10 col-xs-12">
-                                                        <h5><span>Photography for Beginners</span></h5>
-                                                        <p className="lead">16 week course.</p>
-                                                        <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
-                                                    </div>
-                                                    <div className="col-sm-2 col-xs-12 text-right">
-                                                        <h1><span>$199</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-6 masonry-portfolio-item photography">
-                                            <div className="mb40">
-                                                <div className="row">
-                                                    <div className="col-sm-10 col-xs-12">
-                                                        <h5><span>Photography for Beginners</span></h5>
-                                                        <p className="lead">16 week course.</p>
-                                                        <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
-                                                    </div>
-                                                    <div className="col-sm-2 col-xs-12 text-right">
-                                                        <h1><span>$199</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-6 masonry-portfolio-item apps">
-                                            <div className="mb40">
-                                                <div className="row">
-                                                    <div className="col-sm-10 col-xs-12">
-                                                        <h5><span>Photography for Beginners</span></h5>
-                                                        <p className="lead">16 week course.</p>
-                                                        <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
-                                                    </div>
-                                                    <div className="col-sm-2 col-xs-12 text-right">
-                                                        <h1><span>$199</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-6 masonry-portfolio-item design">
-                                            <div className="mb40">
-                                                <div className="row">
-                                                    <div className="col-sm-10 col-xs-12">
-                                                        <h5><span>Photography for Beginners</span></h5>
-                                                        <p className="lead">16 week course.</p>
-                                                        <p className="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                        <NavLink to="/SingleCourse" className="btn btn-primary btn-green" activeClassName="active" role="button">View Details</NavLink>
-                                                    </div>
-                                                    <div className="col-sm-2 col-xs-12 text-right">
-                                                        <h1><span>$199</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                                        {courses.map(course => <SingleCourseView course={course} key={course.id} />)}
+
                                     </div>
                                 </div>
 
