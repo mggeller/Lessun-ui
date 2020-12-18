@@ -1,4 +1,5 @@
 import React from 'react';
+import GetInTouch from '../shared/GetInTouch';
 
 const AboutUs = () => {
     return (
@@ -37,20 +38,7 @@ const AboutUs = () => {
                 <div id="mapwrapper"></div>
             </section>
 
-            <section className="dark-wrapper green-wrapper">
-                <div className="section-inner-60">
-                    <div className="container">
-                        <div className="row cta">
-                            <div className="col-sm-9">
-                                <h4>Do you want to know more? We are here to help.</h4>
-                            </div>
-                            <div className="col-sm-3 text-right">
-                                <a href="#" className="btn btn-white btn-lg">Get In Touch</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <GetInTouch />
         </>
     )
 }

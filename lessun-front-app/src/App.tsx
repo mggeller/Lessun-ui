@@ -13,6 +13,7 @@ import NewsList from './components/news/NewsList';
 import CoursesList from './components/courses/CoursesList';
 import SingleCourse from './components/courses/SingleCourse';
 import ContactUs from './components/pages/ContactUs';
+import Article from './components/news/Article';
 
 
 /* function App() {
@@ -52,6 +53,7 @@ const App = () => {
               <Route exact path="/AboutUs"><AboutUs /></Route>
               <Route exact path="/ContactUs"><ContactUs /></Route>
               <Route exact path="/NewsList"><NewsList /></Route>
+              <Route exact path="/Article"><Article /></Route>
               <Route exact path="/CoursesList"><CoursesList /></Route>
               <Route exact path="/SingleCourse"><SingleCourse /></Route>
             </Switch>

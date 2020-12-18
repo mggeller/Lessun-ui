@@ -43,8 +43,7 @@ const Header = () => {
                                         <ul className="dropdown-menu">
                                             <li><NavLink to="/NewsList" activeClassName="active" role="button">News List</NavLink></li>
                                             <li><a href="news-grid.html">News Grid</a></li>
-                                            <li><a href="single-post.html">Single Post</a></li>
-                                            <li><a href="single-post-no-sidebar.html">Single Post No Sidebar</a></li>
+                                            <li><NavLink to="/Article" activeClassName="active" role="button">Single Post</NavLink></li>
                                         </ul>
                                     </li>
                                     <li className="dropdown">
