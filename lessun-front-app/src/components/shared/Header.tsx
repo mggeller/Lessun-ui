@@ -35,14 +35,12 @@ const Header = () => {
                                         <ul className="dropdown-menu">
                                             <li><NavLink to="/CoursesList" activeClassName="active" role="button">Courses Filterable</NavLink></li>
                                             <li><a href="courses-tabs.html">Courses Tabs</a></li>
-                                            <li><NavLink to="/SingleCourse" activeClassName="active" role="button">Single Course</NavLink></li>
                                         </ul>
                                     </li>
                                     <li className="dropdown">
                                         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">News <span className="caret"></span></a>
                                         <ul className="dropdown-menu">
                                             <li><NavLink to="/NewsList" activeClassName="active" role="button">News List</NavLink></li>
-                                            <li><a href="news-grid.html">News Grid</a></li>
                                             <li><NavLink to="/Article" activeClassName="active" role="button">Single Post</NavLink></li>
                                         </ul>
                                     </li>

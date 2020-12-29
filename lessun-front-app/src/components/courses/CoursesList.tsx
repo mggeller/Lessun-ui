@@ -44,15 +44,16 @@ const CoursesList = () => {
                                 <div className="masonry-portfolio row">
                                     <ul className="masonry-portfolio-filter mb40 text-center list-inline wow fadeIn" data-wow-delay="0.2s">
                                         <li><a className="btn btn-primary btn-transparent active" href="#" data-filter="*">All</a></li>
-                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".apps">Apps</a></li>
-                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".design">Design</a></li>
+                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".apps">Music</a></li>
+                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".design">Language</a></li>
                                         <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".photography">Photography</a></li>
-                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".video">Video</a></li>
+                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".video">Math</a></li>
                                     </ul>
 
                                     <div className="masonry-portfolio-items">
 
                                         {courses.map(course => <SingleCourseView course={course} key={course.id} />)}
+                                        <br/>
 
                                     </div>
                                 </div>

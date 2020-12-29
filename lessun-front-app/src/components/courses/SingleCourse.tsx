@@ -1,33 +1,16 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import { ISingleCourse } from '../../domain/ISingleCourse';
 import { CourseApi } from '../../services/CourseApi';
 import GetInTouch from '../shared/GetInTouch';
-
-const StarRating = (props: {rating: number}) => {
-    let table = [];
-
-    for (let i = 0; i < 5; i++) {
-        if (i <= props.rating - 1) {
-            table.push(<i className="fa fa-star"></i>)
-        } else {
-            table.push(<i className="fa fa-star-o"></i>)
-        }
-    }
-
-    return (<>{table}</>);
-}
+import StarRating from './StarRating';
 
 const SingleCourse = () => {
 
-    // let id_test = useParams();
+    let { id } = useParams<{ id: string }>();
     
-    // console.log(id_test);
-
-    let id: string = "00004";
-
     const [course, setCourse] = useState({} as ISingleCourse | undefined);
 
     useEffect(() => {
@@ -44,7 +27,7 @@ const SingleCourse = () => {
         <>
             <div className="preloader">
                 <div className="preloader-img">
-                    <span className="loading-animation animate-flicker"><img src="assets/images/loading.gif" alt="loading" /></span>
+                    <span className="loading-animation animate-flicker"><img src="/assets/images/loading.gif" alt="loading" /></span>
                 </div>
             </div>
 
@@ -76,7 +59,7 @@ const SingleCourse = () => {
                                 <div className="about-author-widget widget mb40">
                                     <h4 className="widget-title mb40">About the Tutor</h4>
                                     <div className="widget-content">
-                                        <img className="mb40" src="assets/images/cover-1.jpg" />
+                                        <img className="mb40" src={course?.picture_path} />
                                         <p><small>Quickly underwhelm robust scenarios via extensible internal or "organic" sources. Progressively streamline performance based process improvements rather than high standards in convergence. Enthusiastically.</small></p>
                                     </div>
                                 </div>

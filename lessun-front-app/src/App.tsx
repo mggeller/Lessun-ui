@@ -16,27 +16,6 @@ import ContactUs from './components/pages/ContactUs';
 import Article from './components/news/Article';
 
 
-/* function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}*/
-
 const App = () => {
   return (
     <Router>
@@ -55,7 +34,7 @@ const App = () => {
               <Route exact path="/NewsList"><NewsList /></Route>
               <Route exact path="/Article"><Article /></Route>
               <Route exact path="/CoursesList"><CoursesList /></Route>
-              <Route exact path="/SingleCourse"><SingleCourse /></Route>
+              <Route exact path="/SingleCourse/:id"><SingleCourse /></Route>
             </Switch>
             <Footer />
           </div>
