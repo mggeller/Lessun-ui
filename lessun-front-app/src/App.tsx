@@ -10,10 +10,10 @@ import Login from './components/account/Login';
 import Register from './components/account/Register';
 import AboutUs from './components/pages/AboutUs';
 import NewsList from './components/news/NewsList';
-import CoursesList from './components/courses/CoursesList';
 import SingleCourse from './components/courses/SingleCourse';
 import ContactUs from './components/pages/ContactUs';
 import Article from './components/news/Article';
+import Courses from './components/courses/Courses';
 
 
 const App = () => {
@@ -33,8 +33,8 @@ const App = () => {
               <Route exact path="/ContactUs"><ContactUs /></Route>
               <Route exact path="/NewsList"><NewsList /></Route>
               <Route exact path="/Article"><Article /></Route>
-              <Route exact path="/CoursesList"><CoursesList /></Route>
-              <Route exact path="/SingleCourse/:id"><SingleCourse /></Route>
+              <Route exact path="/Courses"><Courses /></Route>
+              <Route exact path="/Courses/:id"><SingleCourse /></Route>
             </Switch>
             <Footer />
           </div>

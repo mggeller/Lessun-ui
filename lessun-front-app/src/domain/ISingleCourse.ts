@@ -1,5 +1,6 @@
 export interface ISingleCourse {
     id: string;
+    tag: string;
     title: string;
     length: number;
     short_description: string;

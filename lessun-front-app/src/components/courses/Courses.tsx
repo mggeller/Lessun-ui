@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from 'react-router-dom';
 import { ISingleCourse } from "../../domain/ISingleCourse";
 import { CourseApi } from "../../services/CourseApi";
 import GetInTouch from "../shared/GetInTouch";
 import SingleCourseView from "./SingleCourseView";
 
-const CoursesList = () => {
+const Courses = () => {
 
+    const [filterField, setFilterField] = useState("");
     const [courses, setCourses] = useState([] as ISingleCourse[]);
+    console.log(filterField);
 
     useEffect(() => {
         const callApi = () => {
@@ -16,6 +17,7 @@ const CoursesList = () => {
         };
         callApi();
     }, [courses.length]);
+
 
     return (
         <>
@@ -43,16 +45,16 @@ const CoursesList = () => {
                             <div className="col-sm-12">
                                 <div className="masonry-portfolio row">
                                     <ul className="masonry-portfolio-filter mb40 text-center list-inline wow fadeIn" data-wow-delay="0.2s">
-                                        <li><a className="btn btn-primary btn-transparent active" href="#" data-filter="*">All</a></li>
-                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".apps">Music</a></li>
-                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".design">Language</a></li>
-                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".photography">Photography</a></li>
-                                        <li><a className="btn btn-primary btn-transparent" href="#" data-filter=".video">Math</a></li>
+                                        <li><button className="btn btn-primary btn-transparent" onClick={() => setFilterField("")}>All</button></li>
+                                        <li><button className="btn btn-primary btn-transparent" onClick={() => setFilterField("Music")}>Music</button></li>
+                                        <li><button className="btn btn-primary btn-transparent" onClick={() => setFilterField("Language")}>Language</button></li>
+                                        <li><button className="btn btn-primary btn-transparent" onClick={() => setFilterField("Photography")}>Photography</button></li>
+                                        <li><button className="btn btn-primary btn-transparent" onClick={() => setFilterField("Math")}>Math</button></li>
                                     </ul>
 
                                     <div className="masonry-portfolio-items">
 
-                                        {courses.map(course => <SingleCourseView course={course} key={course.id} />)}
+                                        {courses.filter(course => course.tag === filterField || filterField === "").map(course => <SingleCourseView course={course} key={course.id} />)}
                                         <br/>
 
                                     </div>
@@ -69,4 +71,4 @@ const CoursesList = () => {
     )
 }
 
-export default CoursesList;
+export default Courses;

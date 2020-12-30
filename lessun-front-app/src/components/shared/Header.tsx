@@ -33,7 +33,7 @@ const Header = () => {
                                     <li className="dropdown">
                                         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span className="caret"></span></a>
                                         <ul className="dropdown-menu">
-                                            <li><NavLink to="/CoursesList" activeClassName="active" role="button">Courses Filterable</NavLink></li>
+                                            <li><NavLink to="/Courses" activeClassName="active" role="button">Courses Filterable</NavLink></li>
                                             <li><a href="courses-tabs.html">Courses Tabs</a></li>
                                         </ul>
                                     </li>
