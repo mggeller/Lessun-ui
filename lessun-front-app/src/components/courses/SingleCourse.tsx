@@ -14,8 +14,9 @@ const SingleCourse = () => {
     const [course, setCourse] = useState({} as ISingleCourse | undefined);
 
     useEffect(() => {
-        const callApi = () => {
-            const data = CourseApi.getCourse(id);
+        const callApi = async () => {
+            const data = await CourseApi.getCourse(id);
+            console.log('data', data);
             setCourse(data);
         };
         callApi();

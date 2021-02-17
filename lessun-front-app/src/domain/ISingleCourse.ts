@@ -7,6 +7,5 @@ export interface ISingleCourse {
     long_description: string;
     price: number;
     rating: number;
-
     picture_path: string;
 }

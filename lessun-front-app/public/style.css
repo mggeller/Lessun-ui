@@ -12,6 +12,10 @@ body {
     background-color: #fefefe;
 }
 
+.disabled{
+    pointer-events: none;
+  }
+
 #master-wrapper {
     overflow: hidden;
 }
