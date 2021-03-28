@@ -19,7 +19,15 @@ const Courses = () => {
             console.log('data', data);
             setCourses(data);
         };
-        
+
+        callApi();
+    }, [courses.length]);
+
+    // console.log(courses);
+
+    useEffect(() => {
+
+        // console.log(courses);
         const sortCourses = (type: string) => {
             const types: any = {
                 price: 'price',
@@ -27,12 +35,17 @@ const Courses = () => {
                 duration: 'duration'
             };
             const sortProperty: string = types[type];
+            // console.log(sortProperty);
             const sorted = [...courses].sort((a: any, b: any) => a[sortProperty] - b[sortProperty]);
+            // console.log(sorted);
             setCourses(sorted);
         };
+
         sortCourses(sortField);
-        callApi();
-    }, [courses.length, sortField]);
+    }, [sortField])
+
+    // console.log(courses);
+
 
 
     return (
@@ -49,6 +62,9 @@ const Courses = () => {
                         <div className="vertical-center-js text-center">
                             <h1>Browse Our Courses</h1>
                             <p className="section-sub-title">Hurry, they fill up quickly.</p>
+                            <p>
+                                <a className="btn btn-lg btn-primary btn-green page-scroll" href="#our-courses" role="button">Create New Courses</a>
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -67,8 +67,8 @@ const SingleCourse = () => {
                                 <div className="course-fees widget mb40">
                                     <h4 className="widget-title mb40">Course Fees</h4>
                                     <div className="widget-content">
-                                        <span className="course-price">${course?.price}</span>
-                                        <span className="course-info">Course Length: <strong>{course?.length} Weeks</strong></span>
+                                        <span className="course-price">€{course?.price}</span>
+                                        <span className="course-info">Course Length: <strong>{course?.duration} Weeks</strong></span>
                                         <span className="course-info">Students Passes: <strong>106</strong></span>
                                         <span className="course-info">Rating: <StarRating rating={course!.rating} /></span>
                                     </div>

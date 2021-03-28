@@ -2,7 +2,7 @@ export interface ISingleCourse {
     id: string;
     tag: string;
     title: string;
-    length: number;
+    duration: number;
     short_description: string;
     long_description: string;
     price: number;
