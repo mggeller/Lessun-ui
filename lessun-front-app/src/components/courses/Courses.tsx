@@ -23,11 +23,8 @@ const Courses = () => {
         callApi();
     }, [courses.length]);
 
-    // console.log(courses);
-
     useEffect(() => {
 
-        // console.log(courses);
         const sortCourses = (type: string) => {
             const types: any = {
                 price: 'price',
@@ -35,17 +32,12 @@ const Courses = () => {
                 duration: 'duration'
             };
             const sortProperty: string = types[type];
-            // console.log(sortProperty);
             const sorted = [...courses].sort((a: any, b: any) => a[sortProperty] - b[sortProperty]);
-            // console.log(sorted);
             setCourses(sorted);
         };
 
         sortCourses(sortField);
     }, [sortField])
-
-    // console.log(courses);
-
 
 
     return (
@@ -94,7 +86,7 @@ const Courses = () => {
 
                                     <div className="masonry-portfolio-items">
 
-                                        {courses.filter(course => course.tag === filterField || filterField === "").map(course => <SingleCourseView course={course} key={course.id} />)}
+                                        {courses.filter(course => course.tags.find(tag => tag.tagName === filterField) || filterField === "").map(course => <SingleCourseView course={course} key={course.id} />)}
                                         <br />
 
                                     </div>

@@ -10,7 +10,7 @@ import StarRating from './StarRating';
 const SingleCourse = () => {
 
     let { id } = useParams<{ id: string }>();
-    
+
     const [course, setCourse] = useState({} as ISingleCourse | undefined);
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const SingleCourse = () => {
                                 <div className="about-author-widget widget mb40">
                                     <h4 className="widget-title mb40">About the Tutor</h4>
                                     <div className="widget-content">
-                                        <img className="mb40" src={course?.picture_path} />
+                                        <img className="mb40" src={course?.picturePath} />
                                         <p><small>Quickly underwhelm robust scenarios via extensible internal or "organic" sources. Progressively streamline performance based process improvements rather than high standards in convergence. Enthusiastically.</small></p>
                                     </div>
                                 </div>
@@ -69,12 +69,28 @@ const SingleCourse = () => {
                                     <div className="widget-content">
                                         <span className="course-price">€{course?.price}</span>
                                         <span className="course-info">Course Length: <strong>{course?.duration} Weeks</strong></span>
-                                        <span className="course-info">Students Passes: <strong>106</strong></span>
+                                        <span className="course-info">Students: <strong>{course?.students}</strong></span>
                                         <span className="course-info">Rating: <StarRating rating={course!.rating} /></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div className="container">
+                    <div className="row mb60 text-center">
+                        <div className="col-sm-12">
+                            <h3 className="section-title">Reviews</h3>
+                        </div>
+                    </div>
+                    <div className="landing-page-review-list row">
+                        <div className="reviews-section--review-container--3F3NE">
+
+                        </div>
+                        
                     </div>
                 </div>
             </section>

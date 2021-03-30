@@ -1,11 +1,15 @@
+import { ITag } from "./ICourseTag";
+
 export interface ISingleCourse {
     id: string;
     tag: string;
     title: string;
     duration: number;
-    short_description: string;
-    long_description: string;
+    students: number;
+    shortDescription: string;
+    longDescription: string;
     price: number;
     rating: number;
-    picture_path: string;
+    picturePath: string;
+    tags: ITag[]
 }

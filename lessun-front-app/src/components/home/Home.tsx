@@ -741,7 +741,7 @@ const Home = () => {
                     <div className="container">
                         <div className="row mb60 text-center">
                             <div className="col-sm-12">
-                                <h3 className="section-title">Our Sponsers</h3>
+                                <h3 className="section-title">Our Sponsors</h3>
                             </div>
                         </div>
                         <div className="row">

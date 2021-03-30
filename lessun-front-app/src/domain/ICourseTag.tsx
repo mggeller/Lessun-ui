@@ -1,4 +1,4 @@
-export interface ICourseTag {
-    name: string;
+export interface ITag {
+    tagName: string;
     description: string;
 }
