@@ -1,4 +1,5 @@
 import { ITag } from "./ICourseTag";
+import { IReview } from "./IReview";
 
 export interface ISingleCourse {
     id: string;
@@ -11,5 +12,6 @@ export interface ISingleCourse {
     price: number;
     rating: number;
     picturePath: string;
-    tags: ITag[]
+    tags: ITag[];
+    reviews: IReview[];
 }

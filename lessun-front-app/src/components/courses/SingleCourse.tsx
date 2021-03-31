@@ -5,10 +5,12 @@ import { useParams } from 'react-router-dom';
 import { ISingleCourse } from '../../domain/ISingleCourse';
 import { CourseApi } from '../../services/CourseApi';
 import GetInTouch from '../shared/GetInTouch';
+import SingleReviewView from './SingleReviewView';
 import StarRating from './StarRating';
 
 const SingleCourse = () => {
 
+    // {course!.reviews.map(review => <SingleReviewView review={review} />)}
     let { id } = useParams<{ id: string }>();
 
     const [course, setCourse] = useState({} as ISingleCourse | undefined);
@@ -81,17 +83,27 @@ const SingleCourse = () => {
 
             <section>
                 <div className="container">
-                    <div className="row mb60 text-center">
+                    <div className="row mb40 text-center">
                         <div className="col-sm-12">
                             <h3 className="section-title">Reviews</h3>
                         </div>
                     </div>
-                    <div className="landing-page-review-list row">
-                        <div className="reviews-section--review-container--3F3NE">
 
+                    <div className="row">
+                        <div className="col-xs-12">
+                            {/* Tab panes */}
+                            <div className="tab-content pt30" id="tabs-collapse">
+                                <div role="tabpanel" className="tab-pane fade in active" id="summer-term">
+                                    <div className="tab-inner">
+                                        <div className="row">
+                                            {course?.reviews && course?.reviews.map(review => <SingleReviewView review={review} />)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
                     </div>
+
                 </div>
             </section>
 
