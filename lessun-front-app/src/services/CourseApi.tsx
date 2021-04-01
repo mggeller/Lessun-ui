@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { IReview } from '../domain/IReview';
 import { ISingleCourse } from '../domain/ISingleCourse';
 
 export abstract class CourseApi {
@@ -7,7 +8,7 @@ export abstract class CourseApi {
             baseURL: "http://localhost:8080/courses",
             headers: {
                 common: {
-                    'Content-Type': 'application/json' 
+                    'Content-Type': 'application/json'
                 }
             }
         }
@@ -59,4 +60,22 @@ export abstract class CourseApi {
             return undefined;
         }
     }
+
+    static async putReview(review: IReview, id: string): Promise<string> {
+        const url = "" + id;
+        console.log(url);
+        try {
+            const response = await this.axios.put(url, review);
+            console.log('create response', response);
+            if (response.status === 200) {
+                return "";
+            }
+            return "";
+        } catch (error) {
+            console.log('error ', (error as Error).message);
+            return "";
+        }
+
+    }
+
 }

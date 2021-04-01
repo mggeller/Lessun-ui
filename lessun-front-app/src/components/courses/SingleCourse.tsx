@@ -1,7 +1,9 @@
+import { event } from 'jquery';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { IReview } from '../../domain/IReview';
 import { ISingleCourse } from '../../domain/ISingleCourse';
 import { CourseApi } from '../../services/CourseApi';
 import GetInTouch from '../shared/GetInTouch';
@@ -10,10 +12,28 @@ import StarRating from './StarRating';
 
 const SingleCourse = () => {
 
-    // {course!.reviews.map(review => <SingleReviewView review={review} />)}
     let { id } = useParams<{ id: string }>();
 
     const [course, setCourse] = useState({} as ISingleCourse | undefined);
+
+    const [review, setReview] = useState({ userName: "Anonymous User", feedBack: '' } as IReview);
+
+    const handleSubmit = (event: React.FormEvent) => {
+        const callApi = async() => {
+            await CourseApi.putReview(review, id);
+        };
+        callApi();
+        console.log(event.target);
+        event.preventDefault();
+        window.location.reload();
+    }
+
+    const handleChange = (target: EventTarget & HTMLTextAreaElement) => {
+        console.log(target.name, target.value, target.type, target);
+        if (target.type === 'textarea' && target instanceof HTMLTextAreaElement) {
+            setReview({ ...review, feedBack: target.value });
+        }
+    }
 
     useEffect(() => {
         const callApi = async () => {
@@ -97,6 +117,14 @@ const SingleCourse = () => {
                                     <div className="tab-inner">
                                         <div className="row">
                                             {course?.reviews && course?.reviews.map(review => <SingleReviewView review={review} />)}
+                                        </div>
+
+                                        <div>
+                                            <form onSubmit={handleSubmit}>
+                                                
+                                                <textarea value={review?.feedBack} onChange={(e) => handleChange(e.target)} name="comments" className="form-control mb10" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
+                                                <input className="btn btn-primary mt30 pull-left" type="submit" name="submit" value="Submit" />
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
