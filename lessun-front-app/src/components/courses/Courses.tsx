@@ -8,10 +8,23 @@ import SingleCourseView from "./SingleCourseView";
 const Courses = () => {
 
     const [filterField, setFilterField] = useState("");
+    const [searchField, setSearchField] = useState("");
     const [sortField, setSortField] = useState("rating");
     const [courses, setCourses] = useState([] as ISingleCourse[]);
     console.log(filterField);
     console.log(sortField);
+
+    const handleChange = (target: EventTarget & HTMLInputElement) => {
+        console.log(target.name);
+        console.log(target.value);
+        console.log(target.type);
+        console.log(target);
+        console.log(searchField);
+        if (target.type === 'text') {
+            setSearchField(target.value);
+        }
+        console.log(searchField);
+    }
 
     useEffect(() => {
         const callApi = async () => {
@@ -67,6 +80,12 @@ const Courses = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12">
+
+                                <div className="input-group mb-3">
+                                    <input value={searchField} onChange={(e) => handleChange(e.target)} type="text" className="form-control" placeholder="Search Course" aria-label="Search Course" aria-describedby="button-addon2" />
+                                    <button className="btn btn-outline-secondary" type="button" id="button-addon2"></button>
+                                </div>
+
                                 <div className="masonry-portfolio row">
                                     <ul className="masonry-portfolio-filter mb40 text-center list-inline wow fadeIn" data-wow-delay="0.2s">
                                         <li><button className="btn btn-primary btn-transparent" onClick={() => setFilterField("")}>All</button></li>
@@ -86,7 +105,7 @@ const Courses = () => {
 
                                     <div className="masonry-portfolio-items">
 
-                                        {courses.filter(course => course.tags.find(tag => tag.tagName === filterField) || filterField === "").map(course => <SingleCourseView course={course} key={course.id} />)}
+                                        {courses.filter(course => {return course.title.toLowerCase().includes(searchField) && (course.tags.find(tag => tag.tagName === filterField) || filterField === "")}).map(course => <SingleCourseView course={course} key={course.id} />)}
                                         <br />
 
                                     </div>
