@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import { IReview } from '../domain/IReview';
+import { ISearchField } from '../domain/ISearchField';
 import { ISingleCourse } from '../domain/ISingleCourse';
 
 export abstract class CourseApi {
@@ -59,6 +60,22 @@ export abstract class CourseApi {
             console.log('error ', (error as Error).message);
             return undefined;
         }
+    }
+
+    static async searchByTitle(searchField: ISearchField): Promise<string> {
+        const url = "";
+        console.log(url);
+        try {
+            const response = await this.axios.post(url, searchField);
+            if (response.status === 200) {
+                return "";
+            }
+            return "";
+        } catch (error) {
+            console.log('error ', (error as Error).message);
+            return "";
+        }
+
     }
 
     static async putReview(review: IReview, id: string): Promise<string> {

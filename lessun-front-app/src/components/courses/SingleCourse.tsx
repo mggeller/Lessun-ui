@@ -2,7 +2,7 @@ import { event } from 'jquery';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { IReview } from '../../domain/IReview';
 import { ISingleCourse } from '../../domain/ISingleCourse';
 import { CourseApi } from '../../services/CourseApi';
@@ -19,12 +19,12 @@ const SingleCourse = () => {
     const [review, setReview] = useState({ userName: "Anonymous User", feedBack: '' } as IReview);
 
     const handleSubmit = (event: React.FormEvent) => {
-        const callApi = async() => {
+        event.preventDefault();
+        const callApi = async () => {
             await CourseApi.putReview(review, id);
         };
         callApi();
         console.log(event.target);
-        event.preventDefault();
         window.location.reload();
     }
 
@@ -42,7 +42,8 @@ const SingleCourse = () => {
             setCourse(data);
         };
         callApi();
-    }, [id]);
+        
+    }, []);
 
     console.log(course)
 
@@ -59,6 +60,10 @@ const SingleCourse = () => {
                     <div className="container single-page-hero">
                         <div className="vertical-center-js text-center">
                             <h1>{course?.title}</h1>
+                            <p>
+                                <NavLink to="/Courses" className="btn btn-lg btn-primary btn-green page-scroll" role="button">Back to Courses</NavLink>
+                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -121,7 +126,7 @@ const SingleCourse = () => {
 
                                         <div>
                                             <form onSubmit={handleSubmit}>
-                                                
+
                                                 <textarea value={review?.feedBack} onChange={(e) => handleChange(e.target)} name="comments" className="form-control mb10" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
                                                 <input className="btn btn-primary mt30 pull-left" type="submit" name="submit" value="Submit" />
                                             </form>

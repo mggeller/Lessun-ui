@@ -1,5 +1,6 @@
 import { data } from "jquery";
 import React, { useEffect, useState } from "react";
+import { ISearchField } from "../../domain/ISearchField";
 import { ISingleCourse } from "../../domain/ISingleCourse";
 import { CourseApi } from "../../services/CourseApi";
 import GetInTouch from "../shared/GetInTouch";
@@ -8,23 +9,11 @@ import SingleCourseView from "./SingleCourseView";
 const Courses = () => {
 
     const [filterField, setFilterField] = useState("");
-    const [searchField, setSearchField] = useState("");
+    let [searchField, setSearchField] = useState("");
     const [sortField, setSortField] = useState("rating");
     const [courses, setCourses] = useState([] as ISingleCourse[]);
     console.log(filterField);
     console.log(sortField);
-
-    const handleChange = (target: EventTarget & HTMLInputElement) => {
-        console.log(target.name);
-        console.log(target.value);
-        console.log(target.type);
-        console.log(target);
-        console.log(searchField);
-        if (target.type === 'text') {
-            setSearchField(target.value);
-        }
-        console.log(searchField);
-    }
 
     useEffect(() => {
         const callApi = async () => {
@@ -34,7 +23,22 @@ const Courses = () => {
         };
 
         callApi();
-    }, [courses.length]);
+    }, [searchField]);
+
+    const handleChange = (target: EventTarget & HTMLInputElement) => {
+        if (target.type === 'text') {
+            console.log(target.value)
+            const tempField = target.value;
+            setSearchField(tempField);
+            searchField = target.value
+            const searchByTitle = async () => {
+                const search: ISearchField = { courseTitle: searchField }
+                await CourseApi.searchByTitle(search);
+            };
+            searchByTitle();
+        }
+        console.log(searchField);
+    }
 
     useEffect(() => {
 
@@ -105,7 +109,7 @@ const Courses = () => {
 
                                     <div className="masonry-portfolio-items">
 
-                                        {courses.filter(course => {return course.title.toLowerCase().includes(searchField) && (course.tags.find(tag => tag.tagName === filterField) || filterField === "")}).map(course => <SingleCourseView course={course} key={course.id} />)}
+                                        {courses.filter(course => {return course.tags.find(tag => tag.tagName === filterField || filterField === "")}).map(course => <SingleCourseView course={course} key={course.id} />)}
                                         <br />
 
                                     </div>
